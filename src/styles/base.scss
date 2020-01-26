@@ -1,0 +1,56 @@
+@import "~sass";
+@import "sass/normalize";
+@import "sass/typography";
+@import "sass/grid";
+
+*:focus {
+  outline: none;
+}
+
+.text-right {
+  text-align: right;
+}
+.text-center {
+  text-align: center;
+}
+.text-left {
+  text-align: left;
+}
+.text-upper {
+  text-transform: uppercase;
+}
+.text-success {
+  color: $success !important;
+}
+.text-info {
+  color: $info !important;
+}
+.text-attention {
+  color: $attention !important;
+}
+.text-warning {
+  color: $warning !important;
+}
+.text-danger {
+  color: $danger !important;
+}
+
+// Mobile / Baseline
+#app,
+.app-content,
+.router-view  {
+  min-height: 100vh;
+  min-width: 100vw;
+}
+
+// Tablets
+@media only screen and (min-width: 768px) {}
+
+// Hi-Res Tablets
+@media only screen and (min-width: 1024px) {}
+
+// Desktops
+@media only screen and (min-width: 1200px) {}
+
+// Larger Desktops
+@media only screen and (min-width: 1920px) {}

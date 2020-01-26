@@ -1,0 +1,75 @@
+@import "_hover-color-func";
+
+/* Testing
+-------------------------- */
+$testMode: false;
+
+
+/* Colors
+-------------------------- */
+$_white: #f8fafb; // gray #0
+$_black: #3a3a37; // gray #10
+$_light-grey: #ebedef; // gray #2
+$_med-grey: #b1b6b9; // gray #5
+$_dark-grey: #979b9d; // gray #6
+
+// General
+// Row #4 of https://ferdychristant.com/color-for-the-color-challenged-884c7aa04a56
+$primary: if($testMode, #72ffe2, #748ffc);
+$primary-hover: hover-color($primary);
+
+$success: if($testMode, #92ff00, #a9e34b);
+$success-hover: hover-color($success);
+
+$info: if($testMode, #ad00ff, #4dabf7);
+$info-hover: hover-color($info);
+
+$warning: if($testMode, #fff700, #ffd43d);
+$warning-hover: hover-color($warning);
+
+$attention: if($testMode, #ec00ec, #ffa94d);
+$attention-hover: hover-color($attention);
+
+$danger: if($testMode, #ff2aa6, #ff6b6b);
+$danger-hover: hover-color($danger);
+
+// Typography
+$font: $_black;
+$lighter-font: lighten($font, 50%);
+$inverse-font: $_white;
+$disabled: $_med-grey;
+$disabled-dark: $_dark-grey;
+
+// Border
+$border: #d1d6d8; // gray #4
+$border-drop-color: #666968; // gray #8
+
+// Button
+$button-font: $_white;
+$button-disabled-font: #7e8282; // gray #7
+$disabled-fill: $_light-grey;
+
+// Background
+$primary-bg: $_white;
+$accent-bg: $_white;
+$inverse-bg: $_black;
+$secondary-bg: $_light-grey; // gray #2
+$tertiary-bg: #f2f4f6; // gray #1
+
+
+/* Typography
+-------------------------- */
+$line-height: 1.2;
+$primary-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+$standout-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+$code-family: "Fira Code", Menlo, Monaco, "Lucida Console", "Liberation Mono", "DejaVu Sans Mono", "Courier New", monospace;
+
+
+/* Border
+-------------------------- */
+$border-size: 1px;
+$border-radius: 10px;
+$border-drop-x: 0;
+$border-drop-y: 0;
+$border-drop-blur: 6px;
+$border-drop-spread: -3px;

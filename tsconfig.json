@@ -1,0 +1,27 @@
+{
+  "include": ["src/**/*"],
+  "compilerOptions": {
+    "module": "esnext",
+    "moduleResolution": "node",
+    "target": "esnext",
+    "jsx": "preserve",
+    "allowJs": true,
+    "resolveJsonModule": true,
+    "noEmit": true,
+    "strict": false,
+    "noImplicitAny": false,
+    "isolatedModules": true,
+    "esModuleInterop": true,
+    "typeRoots": ["src/types", "node_modules/@types"],
+    "baseUrl": ".",
+    "paths": {
+      "blocks/*": ["src/components/blocks/*"],
+      "elements/*": ["src/components/elements/*"],
+      "pages/*": ["src/components/pages/*"],
+      "sections/*": ["src/components/sections/*"],
+      "data/*": ["src/data/*"],
+      "functions/*": ["src/functions/*"],
+      "router/*": ["src/router/*"],
+    }
+  }
+}

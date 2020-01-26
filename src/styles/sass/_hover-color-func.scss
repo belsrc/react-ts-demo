@@ -1,0 +1,3 @@
+@function hover-color($color) {
+  @return mix($_white, $color, 20%)
+}

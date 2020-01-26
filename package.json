@@ -1,0 +1,159 @@
+{
+  "name": "@belsrc/react-ts-demo",
+  "version": "0.1.0",
+  "description": "A template for React apps",
+  "main": "dist/index.js",
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "gitHooks": {
+    "commit-msg": "commitlint -E GIT_PARAMS",
+    "pre-commit": "lint-staged"
+  },
+  "scripts": {
+    "lint": "npx eslint -c .eslintrc.js --fix --color --ignore-path .eslintignore \"**/*.{js,jsx,ts,tsx}\"",
+    "lint:watch": "npx esw -c .eslintrc.js --fix --color --watch --ignore-path .eslintignore \"**/*.{js,jsx,ts,tsx}\"",
+    "lint:ci": "npx eslint -c .eslintrc.js --color --ignore-path .eslintignore \"**/*.{js,jsx,ts,tsx}\"",
+    "prettier": "npx prettier --config .prettierrc.js --write \"**/*.{js,jsx,ts,tsx,md,html}\"",
+    "clean": "npm-run-all prettier lint",
+    "test": "npm-run-all test:types test:all",
+    "test:all": "cross-env NODE_ENV=test jest src/ --verbose --passWithNoTests",
+    "test:changed": "cross-env NODE_ENV=test jest src/ -o --passWithNoTests",
+    "test:types": "npx tsc",
+    "types:watch": "npx tsc --watch",
+    "types:test-compile": "npx tsc --noEmit false --outDir dev",
+    "coverage": "cross-env NODE_ENV=test jest src/ --verbose --coverage --passWithNoTests",
+    "build": "npm-run-all remove:dist build:prod",
+    "build:prod": "cross-env NODE_ENV=production webpack --progress --colors --hide-modules --display-error-details",
+    "build:dev": "cross-env PORT=8001 webpack-dev-server --progress --colors --hide-modules --display-error-details",
+    "remove:dist": "npx rimraf dist/",
+    "dev": "npm-run-all remove:dist build:dev",
+    "start": "run-p lint:watch types:watch",
+    "dryrun": "npm-run-all lint:ci test:all",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0"
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "\\.(css|less|sass|scss)$": "<rootDir>/__mocks__/style-mock.js",
+      "^@blocks(.*)$": "<rootDir>/src/components/blocks$1",
+      "^@elements(.*)$": "<rootDir>/src/components/elements$1",
+      "^@pages(.*)$": "<rootDir>/src/components/pages$1",
+      "^@sections(.*)$": "<rootDir>/src/components/sections$1",
+      "^@data(.*)$": "<rootDir>/src/data$1",
+      "^@functions(.*)$": "<rootDir>/src/functions$1",
+      "^@router(.*)$": "<rootDir>/src/router$1"
+    },
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "/dist"
+    ],
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json"
+    ],
+    "setupFilesAfterEnv": [
+      "jest-enzyme"
+    ],
+    "testEnvironment": "enzyme",
+    "testEnvironmentOptions": {
+      "enzymeAdapter": "react16"
+    },
+    "transform": {
+      "\\.tsx?$": "babel-jest",
+      "\\.jsx?$": "babel-jest"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/belsrc/react-ts-demo.git"
+  },
+  "bugs": {
+    "url": "https://github.com/belsrc/react-ts-demo/issues"
+  },
+  "homepage": "https://github.com/belsrc/react-ts-demo#readme",
+  "author": "bryan@bryanckizer.com",
+  "license": "MIT",
+  "keywords": [],
+  "devDependencies": {
+    "@babel/cli": "7.8.3",
+    "@babel/core": "7.8.3",
+    "@babel/plugin-proposal-object-rest-spread": "7.8.3",
+    "@babel/plugin-syntax-jsx": "7.8.3",
+    "@babel/plugin-transform-async-to-generator": "7.8.3",
+    "@babel/plugin-transform-modules-umd": "7.8.3",
+    "@babel/plugin-transform-runtime": "7.8.3",
+    "@babel/preset-env": "7.8.3",
+    "@babel/preset-react": "7.8.3",
+    "@babel/preset-typescript": "7.8.3",
+    "@babel/runtime": "7.8.3",
+    "@commitlint/cli": "8.3.5",
+    "@commitlint/config-conventional": "8.3.4",
+    "@types/react": "16.9.19",
+    "@types/react-dom": "16.9.5",
+    "@typescript-eslint/parser": "2.17.0",
+    "babel-eslint": "10.0.3",
+    "babel-jest": "25.1.0",
+    "babel-loader": "8.0.6",
+    "babel-plugin-annotate-pure-calls": "0.4.0",
+    "babel-plugin-css-modules-transform": "1.6.2",
+    "babel-plugin-module-resolver": "4.0.0",
+    "conventional-changelog-cli": "2.0.31",
+    "core-js": "3.6.4",
+    "cross-env": "7.0.0",
+    "css-loader": "3.4.2",
+    "cssnano": "4.1.10",
+    "enzyme": "3.11.0",
+    "es6-promise-promise": "1.0.0",
+    "eslint": "6.8.0",
+    "eslint-config-belsrc": "1.1.2",
+    "eslint-import-resolver-alias": "1.1.2",
+    "eslint-loader": "3.0.3",
+    "eslint-plugin-import": "2.20.0",
+    "eslint-watch": "6.0.1",
+    "fork-ts-checker-webpack-plugin": "4.0.2",
+    "html-webpack-plugin": "3.2.0",
+    "jest": "25.1.0",
+    "jest-environment-enzyme": "7.1.2",
+    "jest-enzyme": "7.1.2",
+    "lint-staged": "10.0.2",
+    "mini-css-extract-plugin": "0.9.0",
+    "node-sass": "4.13.1",
+    "npm-run-all": "4.1.5",
+    "optimize-css-assets-webpack-plugin": "5.0.3",
+    "postcss-loader": "3.0.0",
+    "postcss-preset-env": "6.7.0",
+    "prettier": "1.19.1",
+    "regenerator-runtime": "0.13.3",
+    "rimraf": "3.0.0",
+    "sass-loader": "8.0.2",
+    "script-ext-html-webpack-plugin": "2.1.4",
+    "style-loader": "1.1.3",
+    "terser-webpack-plugin": "2.3.2",
+    "ts-loader": "6.2.1",
+    "typescript": "3.7.5",
+    "webpack": "4.41.5",
+    "webpack-cli": "3.3.10",
+    "webpack-dev-server": "3.10.1",
+    "webpack-filter-warnings-plugin": "1.2.1",
+    "webpack-merge": "4.2.2",
+    "worker-loader": "2.0.0",
+    "yorkie": "2.0.0"
+  },
+  "dependencies": {
+    "@reach/router": "1.2.1",
+    "axios": "0.19.2",
+    "classnames": "2.2.6",
+    "core-js": "3.6.4",
+    "fjp": "0.2.4",
+    "react": "16.12.0",
+    "react-dom": "16.12.0",
+    "react-helmet": "5.2.1",
+    "react-loadable": "5.5.0"
+  }
+}

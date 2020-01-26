@@ -1,0 +1,82 @@
+@import "~sass";
+
+$size: 3rem;
+
+// Mobile / Baseline
+.loader {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: $size;
+  height: $size;
+  margin: 3rem auto;
+  perspective: 1200px;
+  transform: translate(-50%, -100%);
+
+  &__background {
+    min-height: 100vh;
+    min-width: 100vw;
+    position: absolute;
+    background-color: $primary-bg;
+  }
+
+  &__atom {
+    &-1,
+    &-2,
+    &-3 {
+      width: $size;
+      height: $size;
+      border-radius: 50%;
+      border-width: 4px;
+      position: absolute;
+      box-sizing: border-box;
+      transform-style: preserve-3d;
+    }
+
+    &-1 {
+      left: 0; top: 0;
+      border-bottom-style: solid;
+      border-bottom-color: $info;
+      animation: load-spin-1 1s linear infinite;
+    }
+    &-2 {
+      right: 0; top: 0;
+      border-right-style: solid;
+      border-right-color: $info;
+      animation: load-spin-2 1.2s linear infinite;
+    }
+    &-3 {
+      right: 0; bottom: 0;
+      border-top-style: solid;
+      border-top-color: $info;
+      animation: load-spin-3 1.4s linear infinite;
+    }
+  }
+}
+
+@keyframes load-spin-1 {
+  0% {
+    transform: rotateX(35deg) rotateY(-45deg) rotateZ(0deg);
+  }
+  100% {
+    transform: rotateX(35deg) rotateY(-45deg) rotateZ(360deg);
+  }
+}
+
+@keyframes load-spin-2 {
+  0% {
+    transform: rotateX(50deg) rotateY(10deg) rotateZ(0deg);
+  }
+  100% {
+    transform: rotateX(50deg) rotateY(10deg) rotateZ(360deg);
+  }
+}
+
+@keyframes load-spin-3 {
+  0% {
+    transform: rotateX(35deg) rotateY(55deg) rotateZ(0deg);
+  }
+  100% {
+    transform: rotateX(35deg) rotateY(55deg) rotateZ(360deg);
+  }
+}

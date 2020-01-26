@@ -1,0 +1,11 @@
+/node_modules/*
+**/__mocks__/*
+/dist/*
+/coverage/*
+*.json
+*.svg
+*.ttf
+*.woff
+*.example
+*.note
+*.d.ts

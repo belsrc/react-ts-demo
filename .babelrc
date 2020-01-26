@@ -1,0 +1,51 @@
+{
+  "presets": [
+    [
+      "@babel/preset-typescript",
+      {
+        "isTSX": true,
+        "allExtensions": true,
+        "allowNamespaces": false
+      }
+    ],
+    [
+      "@babel/preset-env",
+      {
+        "targets": {
+          "ie": "11"
+        }
+      }
+    ],
+    "@babel/preset-react"
+  ],
+  "plugins": [
+    [
+      "@babel/plugin-proposal-object-rest-spread",
+      {
+        "useBuiltIns": false
+      }
+    ],
+    [
+      "@babel/plugin-transform-async-to-generator",
+      {
+        "useBuiltIns": false
+      }
+    ],
+    "@babel/plugin-transform-runtime",
+    [
+      "module-resolver",
+      {
+        "alias": {
+          "components": "./src/components/",
+          "blocks": "./src/components/blocks/",
+          "elements": "./src/components/elements/",
+          "pages": "./src/components/pages/",
+          "sections": "./src/components/sections/",
+          "data": "./src/data/",
+          "functions": "./src/functions/",
+          "router": "./src/store/"
+        }
+      }
+    ]
+  ]
+}
